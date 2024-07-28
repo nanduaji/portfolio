@@ -81,9 +81,10 @@ const Home = forwardRef((props, ref) => {
         <div className={styles.textContainer}>
           <h1 className={styles.heading}>Welcome 👋</h1>
           <p className={styles.description}>
-            With 4 years as a Web developer, I have gained the skills to ensure
-            your project's success. I enjoy every step of the design process,
-            from collaboration to execution.
+            With four years of experience as a web developer, I've honed my
+            skills to drive your project’s success. I take pleasure in every
+            aspect of the design process, from initial collaboration to final
+            execution
           </p>
           <div className={styles.imageContainerMobile}>
             <img
