@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./Experience.module.css";
 import {
   Card,
@@ -10,9 +10,9 @@ import {
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Experience() {
+const Experience = forwardRef((props, ref) => {
   return (
-    <div className={styles.experience}>
+    <div className={styles.experience} ref={ref}>
       <h1>Experience</h1>
       <div className={styles.cardsContainer}>
         <Tooltip title="https://www.valoriz.com">
@@ -163,6 +163,6 @@ function Experience() {
       </div>
     </div>
   );
-}
+});
 
 export default Experience;

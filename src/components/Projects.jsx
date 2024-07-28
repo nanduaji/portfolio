@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import styles from "./Projects.module.css";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
-function Projects() {
+const Projects = forwardRef((props, ref) => {
   const [expandedCard, setExpandedCard] = useState(null);
   const projectsData = [
     {
@@ -41,7 +41,7 @@ function Projects() {
   };
 
   return (
-    <div className={styles.projects}>
+    <div className={styles.projects} ref={ref}>
       <div className={styles.main}>
         <h1 className={styles.heading}>My Projects</h1>
         <div className={styles.cardContainer}>
@@ -127,6 +127,6 @@ function Projects() {
       </div>
     </div>
   );
-}
+});
 
 export default Projects;

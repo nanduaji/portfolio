@@ -1,6 +1,4 @@
-// src/pages/Home.jsx
-
-import React, { useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import styles from "./Home.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,13 +9,16 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faCloud, faDatabase } from "@fortawesome/free-solid-svg-icons";
 import Charts from "../components/Charts";
+import { Button } from "@mui/material";
+import { Download } from "@mui/icons-material";
 
-function Home() {
+const Home = forwardRef((props, ref) => {
   const [projectStat, setProjectStat] = useState(0);
   const [trainingStat, setTrainingStat] = useState(0);
   const [seminarStat, setSeminarStat] = useState(0);
   const [showCharts, setShowCharts] = useState(false);
   const chartsRef = useRef(null);
+
   useEffect(() => {
     let projectTimer = setInterval(() => {
       setProjectStat((prev) => {
@@ -55,23 +56,28 @@ function Home() {
       clearInterval(seminarTimer);
     };
   }, []);
+
   const showChartsFunction = () => {
     setShowCharts((prev) => !prev);
     setTimeout(() => {
       if (chartsRef.current) {
-        console.log("Scrolling to chartsRef:", chartsRef.current);
         chartsRef.current.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
-      } else {
-        console.log("chartsRef.current is null");
       }
     }, 100);
   };
+
+  const handleDownload = () => {
+    const resumeURL =
+      "https://drive.google.com/file/d/1bGsGjN4d4kLsdYDZHkim-qMbrc2HXX3b/view?usp=sharing";
+    window.open(resumeURL, "_blank");
+  };
+
   return (
     <>
-      <div className={styles.home}>
+      <div className={styles.home} ref={ref}>
         <div className={styles.textContainer}>
           <h1 className={styles.heading}>Welcome 👋</h1>
           <p className={styles.description}>
@@ -89,6 +95,21 @@ function Home() {
           <div className={styles.skillsContainer}>
             <h2 className={styles.skillsHeading}>
               <b>My Skills</b>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleDownload}
+                className={styles.resumeButton}
+                startIcon={<Download />}
+                sx={{
+                  "@media (max-width: 768px)": {
+                    display: "none",
+                  },
+                  ml: "20px",
+                }}
+              >
+                Download Resume
+              </Button>
               <br />
               <br />
             </h2>
@@ -134,6 +155,22 @@ function Home() {
                 Javascript
               </li>
             </ul>
+            <br />
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleDownload}
+              sx={{
+                display: { xs: "block", md: "none" },
+                mx: "auto",
+                mb: 2,
+                "@media (max-width: 768px)": {
+                  width: "200px",
+                },
+              }}
+            >
+              Download Resume
+            </Button>
           </div>
         </div>
         <div className={styles.imageContainer}>
@@ -171,6 +208,6 @@ function Home() {
       )}
     </>
   );
-}
+});
 
 export default Home;

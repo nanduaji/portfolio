@@ -1,10 +1,10 @@
-import { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "./Header.module.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
 import { Menu, MenuItem, Typography } from "@mui/material";
 
-function Header() {
+function Header({ homeRef, experienceRef, projectsRef, contactRef }) {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null); // Track selected index
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Check initial screen size
@@ -17,9 +17,18 @@ function Header() {
     setAnchorElNav(null);
   };
 
-  const headerItems = ["HOME", "EXPERIENCE", "WORKS", "CONTACT"];
+  const headerItems = [
+    { label: "HOME", ref: homeRef },
+    { label: "EXPERIENCE", ref: experienceRef },
+    { label: "PROJECTS", ref: projectsRef },
+    { label: "CONTACT", ref: contactRef },
+  ];
 
   const handleHeaderItemClick = (index) => {
+    const sectionRef = headerItems[index].ref;
+    if (sectionRef && sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
     setSelectedIndex(index);
     handleCloseNavMenu();
   };
@@ -40,13 +49,13 @@ function Header() {
         <span className={styles.text}>NANDU A</span>
       </div>
       <ul className={styles.desktopMenu}>
-        {headerItems.map((header, index) => (
+        {headerItems.map((item, index) => (
           <li
             key={index}
             onClick={() => handleHeaderItemClick(index)}
             className={selectedIndex === index ? styles.activeItem : ""}
           >
-            {header}
+            {item.label}
           </li>
         ))}
       </ul>
@@ -73,16 +82,16 @@ function Header() {
         open={Boolean(anchorElNav)}
         onClose={handleCloseNavMenu}
       >
-        {headerItems.map((header, index) => (
+        {headerItems.map((item, index) => (
           <MenuItem
-            key={header}
+            key={index}
             onClick={() => handleHeaderItemClick(index)}
             sx={{
               bgcolor: selectedIndex === index ? "blue" : "inherit",
               color: selectedIndex === index ? "white" : "inherit",
             }}
           >
-            <Typography textAlign="center">{header}</Typography>
+            <Typography textAlign="center">{item.label}</Typography>
           </MenuItem>
         ))}
       </Menu>

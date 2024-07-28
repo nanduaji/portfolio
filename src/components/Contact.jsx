@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import styles from "./Contact.module.css";
 import {
   Button,
@@ -9,7 +9,7 @@ import {
   TextField,
 } from "@mui/material";
 
-function Contact() {
+const Contact = forwardRef((props, ref) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -43,7 +43,7 @@ function Contact() {
     window.open(mailtoURL, "_self");
   };
   return (
-    <div>
+    <div ref={ref}>
       <h1 className={styles.heading}>Contact Me</h1>
       <div className={styles.innerdiv}>
         <Card
@@ -156,6 +156,6 @@ function Contact() {
       </div>
     </div>
   );
-}
+});
 
 export default Contact;

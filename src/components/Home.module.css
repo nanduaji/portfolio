@@ -161,6 +161,22 @@
   margin: 20px auto;
   padding: 20px;
 }
+.resumeButton {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: none;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-left: 200px;
+}
+
+.resumeButton:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
 
 @media screen and (max-width: 768px) {
   .chartscontainer {
