@@ -6,8 +6,8 @@ import { Menu, MenuItem, Typography } from "@mui/material";
 
 function Header({ homeRef, experienceRef, projectsRef, contactRef }) {
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(null); // Track selected index
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Check initial screen size
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

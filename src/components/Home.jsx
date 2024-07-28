@@ -22,7 +22,7 @@ const Home = forwardRef((props, ref) => {
   useEffect(() => {
     let projectTimer = setInterval(() => {
       setProjectStat((prev) => {
-        if (prev >= 100) {
+        if (prev >= 10) {
           clearInterval(projectTimer);
           return prev;
         }
@@ -32,7 +32,7 @@ const Home = forwardRef((props, ref) => {
 
     let trainingTimer = setInterval(() => {
       setTrainingStat((prev) => {
-        if (prev >= 250) {
+        if (prev >= 5) {
           clearInterval(trainingTimer);
           return prev;
         }
@@ -42,7 +42,7 @@ const Home = forwardRef((props, ref) => {
 
     let seminarTimer = setInterval(() => {
       setSeminarStat((prev) => {
-        if (prev >= 50) {
+        if (prev >= 5) {
           clearInterval(seminarTimer);
           return prev;
         }
