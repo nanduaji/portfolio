@@ -1,0 +1,61 @@
+.header {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.desktopMenu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.desktopMenu li {
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.desktopMenu li:hover {
+  color: #007bff;
+}
+
+.desktopMenu li.activeItem {
+  color: blue;
+}
+
+.image {
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.text {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+  font-size: 20px;
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .menuIcon {
+    display: block;
+    margin-left: auto;
+  }
+
+  .desktopMenu {
+    display: none;
+  }
+}

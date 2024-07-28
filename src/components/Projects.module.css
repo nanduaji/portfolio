@@ -1,0 +1,44 @@
+.projects {
+  text-align: center;
+  background-color: #ffc448;
+  padding: 20px;
+}
+
+.main {
+  text-align: left;
+}
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px;
+  padding: 10px;
+}
+
+.cardContainer > * {
+  flex: 0 0 auto;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+.heading {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,242 @@
+/* Default styles for larger screens */
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #f0f0f0;
+}
+
+.textContainer {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.textContainer h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.textContainer p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.imageContainer {
+  flex: 1;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border-color: #007bff;
+}
+
+.skillsContainer {
+  text-align: left;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.skillsHeading {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.skillsList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  cursor: pointer;
+}
+
+.skillsList li {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #333;
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 24px;
+  color: #007bff;
+}
+
+.skillsList li:hover {
+  color: #fff;
+  background-color: #007bff;
+  border: 1px solid #0056b3;
+}
+
+.skillsList li:hover .icon {
+  color: #fff;
+}
+
+.description {
+  width: 100%;
+}
+.imageContainerMobile {
+  display: none;
+}
+.numbersContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.numberItem {
+  text-align: center;
+}
+
+.numberText {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.number {
+  font-size: 50px;
+  font-weight: bold;
+  color: #007bff;
+  background: linear-gradient(45deg, #007bff, #00d2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 10px;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.number:hover {
+  transform: scale(1.1) rotate(-2deg);
+  color: #ff5722;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.toggleButton {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggleButton:hover {
+  background-color: #0056b3;
+}
+
+.chartsContainer {
+  width: 28%;
+  max-width: 600px;
+  height: 400px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .chartscontainer {
+    display: none;
+  }
+  .imageContainer {
+    display: none;
+  }
+  .home {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .textContainer {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .textContainer h1 {
+    font-size: 1.8em;
+  }
+
+  .textContainer p {
+    font-size: 1em;
+  }
+
+  .imageContainerMobile {
+    display: block;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .imageMobile {
+    border-radius: 5%;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+  }
+  .imageMobile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border-color: #007bff;
+  }
+  .skillsContainer {
+    text-align: center;
+  }
+
+  .skillsList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .skillsList li {
+    font-size: 16px;
+    margin: 5px;
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+  .number {
+    font-size: 30px;
+    font-weight: bold;
+    color: #007bff;
+  }
+  .toggleButton {
+    display: none;
+  }
+}

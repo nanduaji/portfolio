@@ -1,0 +1,36 @@
+body {
+  background-color: #1f282d;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.innerdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #e0d6d4;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .innerdiv {
+    padding: 10px;
+    width: 90%;
+    max-width: 90%;
+  }
+  .innerdiv .MuiCard-root {
+    width: 100px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+}
