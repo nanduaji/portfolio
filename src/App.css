@@ -4,3 +4,15 @@ body {
 html {
   scroll-behavior: smooth;
 }
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode .header,
+.dark-mode .home,
+.dark-mode .experience,
+.dark-mode .projects,
+.dark-mode .contact {
+  background-color: #1e1e1e;
+}

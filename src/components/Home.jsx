@@ -3,14 +3,21 @@ import styles from "./Home.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDocker,
+  faFacebook,
+  faInstagram,
   faJs,
+  faLinkedin,
   faNode,
   faReact,
+  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faCloud, faDatabase } from "@fortawesome/free-solid-svg-icons";
 import Charts from "../components/Charts";
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import { Download } from "@mui/icons-material";
+import Modal from "./Modal";
+import SkillsChart from "./SkillsChart";
+import Dashboard from "./Dashboard";
 
 const Home = forwardRef((props, ref) => {
   const [projectStat, setProjectStat] = useState(0);
@@ -18,7 +25,14 @@ const Home = forwardRef((props, ref) => {
   const [seminarStat, setSeminarStat] = useState(0);
   const [showCharts, setShowCharts] = useState(false);
   const chartsRef = useRef(null);
+  const [open, setOpen] = useState(false);
+  const [openDashboard, setOpenDashboard] = useState(false);
 
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handleOpenDashboard = () => setOpenDashboard(true);
+  const handleDashboardClose = () => setOpenDashboard(false);
   useEffect(() => {
     let projectTimer = setInterval(() => {
       setProjectStat((prev) => {
@@ -78,6 +92,11 @@ const Home = forwardRef((props, ref) => {
   return (
     <>
       <div className={styles.home} ref={ref}>
+        <div className={styles.statisticsButton}>
+          <Button color="primary" onClick={handleOpenDashboard}>
+            Statistics
+          </Button>
+        </div>
         <div className={styles.textContainer}>
           <h1 className={styles.heading}>Welcome 👋</h1>
           <p className={styles.description}>
@@ -95,7 +114,16 @@ const Home = forwardRef((props, ref) => {
           </div>
           <div className={styles.skillsContainer}>
             <h2 className={styles.skillsHeading}>
-              <b>My Skills</b>
+              <Tooltip title="Click here to know more">
+                <Button
+                  onClick={handleOpen}
+                  className={styles.button}
+                  variant="contained"
+                  color="primary"
+                >
+                  My Skills
+                </Button>
+              </Tooltip>
               <Button
                 variant="contained"
                 color="primary"
@@ -115,14 +143,16 @@ const Home = forwardRef((props, ref) => {
               <br />
             </h2>
             <ul className={styles.skillsList}>
-              <li>
-                <FontAwesomeIcon
-                  icon={faReact}
-                  className={styles.icon}
-                  style={{ color: "#087ea4" }}
-                />
-                ReactJS
-              </li>
+              <Tooltip title="Click to view the projects in which ReactJS is used">
+                <li>
+                  <FontAwesomeIcon
+                    icon={faReact}
+                    className={styles.icon}
+                    style={{ color: "#087ea4" }}
+                  />
+                  ReactJS
+                </li>
+              </Tooltip>
               <li>
                 <FontAwesomeIcon
                   icon={faNode}
@@ -176,6 +206,40 @@ const Home = forwardRef((props, ref) => {
         </div>
         <div className={styles.imageContainer}>
           <img src="nandu.jpeg" alt="Landing" className={styles.image} />
+          <div className={styles.socialMediaContainer}>
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.icon}
+            >
+              <FontAwesomeIcon icon={faFacebook} />
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.icon}
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a
+              href="https://www.twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.icon}
+            >
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.icon}
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+          </div>
         </div>
       </div>
       <div className={styles.numbersContainer}>
@@ -207,6 +271,12 @@ const Home = forwardRef((props, ref) => {
           />
         </div>
       )}
+      <Modal open={open} handleClose={handleClose}>
+        <SkillsChart />
+      </Modal>
+      <Modal open={openDashboard} handleClose={handleDashboardClose}>
+        <Dashboard />
+      </Modal>
     </>
   );
 });

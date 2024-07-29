@@ -2,9 +2,18 @@ import React, { useState, useEffect, useCallback } from "react";
 import styles from "./Header.module.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
-import { Menu, MenuItem, Typography } from "@mui/material";
+import { Menu, MenuItem, Tooltip, Typography } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAdjust, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
-function Header({ homeRef, experienceRef, projectsRef, contactRef }) {
+function Header({
+  homeRef,
+  experienceRef,
+  projectsRef,
+  contactRef,
+  toggleTheme,
+  isDarkMode,
+}) {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -43,10 +52,25 @@ function Header({ homeRef, experienceRef, projectsRef, contactRef }) {
   }, [updateMedia]);
 
   return (
-    <div className={styles.header}>
+    <div className={`${styles.header} ${isDarkMode ? styles.darkMode : ""}`}>
       <div className={styles.logoContainer}>
         <img src="logo.jpeg" alt="Logo" className={styles.image} />
-        <span className={styles.text}>NANDU A</span>
+        <span className={`${styles.text} ${isDarkMode ? styles.darkMode : ""}`}>
+          NANDU A
+        </span>
+        <Tooltip
+          title={
+            isDarkMode === true
+              ? "Currently Dark Mode.Click to toggle."
+              : "Currently Light Mode.Click to toggle."
+          }
+        >
+          <span className={styles.icon}>
+            <button onClick={toggleTheme} className={styles.themeToggle}>
+              <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
+            </button>
+          </span>
+        </Tooltip>
       </div>
       <ul className={styles.desktopMenu}>
         {headerItems.map((item, index) => (
@@ -63,7 +87,10 @@ function Header({ homeRef, experienceRef, projectsRef, contactRef }) {
       <IconButton
         className={styles.menuIcon}
         onClick={handleOpenNavMenu}
-        style={{ display: isMobile ? "block" : "none" }}
+        style={{
+          display: isMobile ? "block" : "none",
+          color: isDarkMode === true ? "white" : "",
+        }}
       >
         <MenuIcon />
       </IconButton>

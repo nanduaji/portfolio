@@ -8,12 +8,16 @@ import {
   Typography,
   TextField,
 } from "@mui/material";
-
+import Modal from "./Modal";
+import Maps from "./Maps";
 const Contact = forwardRef((props, ref) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [open, setOpen] = useState(false);
 
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     const phoneNumber = "9074925424";
@@ -84,6 +88,22 @@ const Contact = forwardRef((props, ref) => {
               >
                 http://www.linkedin.com/in/nandu-aji-bb2369207
               </a>
+              <br />
+              <strong>
+                <a
+                  onClick={handleOpen}
+                  style={{
+                    textDecoration: "none",
+                    color: "#00A0DC",
+                    backgroundColor: "#1f282d",
+                    borderRadius: "5px",
+                    fontWeight: "bold",
+                    cursor: "pointer",
+                  }}
+                >
+                  Click here for the location
+                </a>
+              </strong>
             </Typography>
           </CardContent>
         </Card>
@@ -154,6 +174,9 @@ const Contact = forwardRef((props, ref) => {
           </CardContent>
         </Card>
       </div>
+      <Modal open={open} handleClose={handleClose}>
+        <Maps />
+      </Modal>
     </div>
   );
 });

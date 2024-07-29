@@ -1,0 +1,11 @@
+.chartContainer {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.chartTitle {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
