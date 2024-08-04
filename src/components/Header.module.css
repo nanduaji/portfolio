@@ -72,7 +72,7 @@
 }
 
 .darkMode .themeToggle:hover {
-  color: #007bff; /* Change color on hover for dark mode */
+  color: #007bff;
 }
 
 @media screen and (max-width: 768px) {

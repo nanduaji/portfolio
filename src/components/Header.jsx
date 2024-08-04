@@ -54,7 +54,7 @@ function Header({
   return (
     <div className={`${styles.header} ${isDarkMode ? styles.darkMode : ""}`}>
       <div className={styles.logoContainer}>
-        <img src="logo.jpeg" alt="Logo" className={styles.image} />
+        <img src="logo2.jpeg" alt="Logo" className={styles.image} />
         <span className={`${styles.text} ${isDarkMode ? styles.darkMode : ""}`}>
           NANDU A
         </span>

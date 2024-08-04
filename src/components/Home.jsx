@@ -143,16 +143,14 @@ const Home = forwardRef((props, ref) => {
               <br />
             </h2>
             <ul className={styles.skillsList}>
-              <Tooltip title="Click to view the projects in which ReactJS is used">
-                <li>
-                  <FontAwesomeIcon
-                    icon={faReact}
-                    className={styles.icon}
-                    style={{ color: "#087ea4" }}
-                  />
-                  ReactJS
-                </li>
-              </Tooltip>
+              <li>
+                <FontAwesomeIcon
+                  icon={faReact}
+                  className={styles.icon}
+                  style={{ color: "#087ea4" }}
+                />
+                ReactJS
+              </li>
               <li>
                 <FontAwesomeIcon
                   icon={faNode}

@@ -1,0 +1,157 @@
+/* src/components/Chatbot.module.css */
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s, glowingBorder 1.5s infinite;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes glowingBorder {
+  0% {
+    border-color: #d734b9;
+    box-shadow: 0 0 5px #ccc;
+  }
+  50% {
+    border-color: #d734b9; /* Change this to your desired glowing color */
+    box-shadow: 0 0 15px #e21616; /* Glowing effect */
+  }
+  100% {
+    border-color: #ccc;
+    box-shadow: 0 0;
+  }
+}
+.avatar img {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
+
+.chatbox {
+  position: relative;
+  width: 300px;
+  max-height: 400px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  height: 4000px; /* Set a fixed height or adjust as needed */
+  max-height: 80vh; /* Optional: maximum height relative to viewport height */
+  border: 1px solid #ddd; /* Optional: Add a border for better visibility */
+  border-radius: 5px; /* Optional: Rounded corners */
+  min-height: 20vh;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  max-width: 80%;
+}
+
+.user {
+  background: #e1ffc7;
+  align-self: flex-end;
+}
+
+.bot {
+  background: #f0f0f0;
+  align-self: flex-start;
+}
+
+.inputContainer {
+  display: flex;
+  border-top: 1px solid #ccc;
+  padding: 5px;
+}
+
+input {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.predefinedQuestions {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.predefinedButton {
+  background: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
