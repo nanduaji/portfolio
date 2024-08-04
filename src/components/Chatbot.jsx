@@ -75,7 +75,7 @@ const Chatbot = () => {
     return "Sorry, I don't understand.";
   };
 
-  const toggleChatbox = () => {
+  const toggleChatbox1 = () => {
     setIsChatOpen(!isChatOpen);
   };
 
@@ -116,13 +116,13 @@ const Chatbot = () => {
             />
             <button onClick={handleSendMessage}>Send</button>
           </div>
-          <button className={styles.closeButton} onClick={toggleChatbox}>
+          <button className={styles.closeButton} onClick={toggleChatbox1}>
             &times;
           </button>
         </div>
       ) : (
         <Tooltip title="Talk To Me">
-          <div className={styles.avatar} onClick={toggleChatbox}>
+          <div className={styles.avatar} onClick={toggleChatbox1}>
             <img src="avatar.jpg" alt="Chatbot Avatar" />
           </div>
         </Tooltip>
